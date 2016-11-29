@@ -247,8 +247,9 @@ ponds.prototype.style = function () {
 
   var css = 'body {margin:0;} #rma-widget{width:320px;height:480px;}';
   css += '.layer{width:320px;height480px;position:relative;}';
-  css += '#redeem_container{width:320px;height:48px;overflow:hidden;position:absolute;bottom:45px;text-align:center;}';
-  css += '#code{position:absolute;color:white;font-size:13px;left:47px;top:16px;letter-spacing:5px;display:none;font-weight:bold;font-family:Arial, Helvetica, sans-serif;}';
+  css += '#redeem_container{width:320px;height:55px;overflow:hidden;position:absolute;bottom:35px;text-align:center;}';
+  css += '#redeem {width:285px;height:55px;}'
+  css += '#code{position:absolute;color:white;font-size:15px;left:34px;top:17px;letter-spacing:5px;display:none;font-weight:bold;font-family:Arial, Helvetica, sans-serif;}';
   css += '#coupon{display:none;margin:0 auto;}';
 
   head = document.head || document.getElementsByTagName('head')[0],
@@ -270,9 +271,9 @@ ponds.prototype.events = function () {
   this.coupon = document.getElementById('coupon');
   this.code = document.getElementById('code');
   this.redeem.addEventListener('click', function (e) {
-    _this.app.loadJs('//www.mobileads.com/get_unique_code?userId=2901&campaignId=173&studioId=216&callback=getCode')
+    _this.app.loadJs('//www.mobileads.com/get_unique_code?userId=2901&campaignId=173&studioId=216&isDemo=1&callback=getCode')
     e.target.style.display = 'none';
-    _this.coupon.style.display = 'block';
+    // _this.coupon.style.display = 'block';
     _this.code.style.display = 'block';
     _this.app.tracker('E','get_code')
   })

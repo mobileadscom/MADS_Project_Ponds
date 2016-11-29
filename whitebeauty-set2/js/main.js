@@ -237,7 +237,7 @@ ponds.prototype.render = function () {
   <div id="redeem_container"> \
   <img src="' + this.app.path + 'images/ponds-bttn1.png" id="redeem"/> \
   <img src="' + this.app.path + 'images/ponds-bttn2.png" id="coupon"/> \
-  <span id="code">123566</span> \
+  <span id="code">Loading</span> \
   </div> \
   </div> \
   </div>';
@@ -247,8 +247,9 @@ ponds.prototype.style = function () {
 
   var css = 'body {margin:0;} #rma-widget{width:320px;height:480px;}';
   css += '.layer{width:320px;height480px;position:relative;}';
-  css += '#redeem_container{width:320px;height:52px;overflow:hidden;position:absolute;bottom:45px;text-align:center;}';
-  css += '#code{position:absolute;color:white;font-size:24px;left:50px;top:10px;letter-spacing:5px;display:none;}';
+  css += '#redeem_container{width:320px;height:55px;overflow:hidden;position:absolute;bottom:42px;text-align:center;}';
+  css += '#redeem {width:285px;height:55px;}'
+  css += '#code{position:absolute;color:white;font-size:15px;left:34px;top:17px;letter-spacing:5px;display:none;font-weight:bold;font-family:Arial, Helvetica, sans-serif;}';
   css += '#coupon{display:none;margin:0 auto;}';
 
   head = document.head || document.getElementsByTagName('head')[0],
@@ -271,9 +272,9 @@ ponds.prototype.events = function () {
   this.code = document.getElementById('code');
 
   this.redeem.addEventListener('click', function (e) {
-    this.app.loadJs('//www.mobileads.com/get_unique_code?userId=2901&campaignId=174&studioId=217&isDemo=1&callback=getCode')
+    _this.app.loadJs('//www.mobileads.com/get_unique_code?userId=2901&campaignId=174&studioId=217&isDemo=1&callback=getCode')
     e.target.style.display = 'none';
-    _this.coupon.style.display = 'block';
+    // _this.coupon.style.display = 'block';
     _this.code.style.display = 'block';
   })
 }
